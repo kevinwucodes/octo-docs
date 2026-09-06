@@ -8,13 +8,53 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
-  palette:
-    primary: indigo
-    accent: indigo
+  language: en
+  
+  # Visual styling & theme features
   features:
-    - navigation.expand
-    - content.code.copy
-    - content.action.edit    # <--- ADD THIS LINE
+    - navigation.tabs          # Top horizontal tabs for main navigation categories
+    - navigation.sections      # Group sidebar links into expandable sections
+    - navigation.expand        # Keep sidebar sections expanded by default
+    - navigation.top           # Add "Back to top" button when scrolling
+    - navigation.path          # Breadcrumb navigation at the top of pages
+    - search.suggest           # Live search completion suggestions
+    - search.highlight         # Highlight matching terms in search results
+    - content.code.copy        # One-click copy button on code blocks
+    - content.action.edit      # "Edit on GitHub" pencil icon on pages
+
+  # Color Palette & Light/Dark Mode Toggle
+  palette:
+    # Light Mode Configuration
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Dark Mode Configuration
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+# Rich Markdown Extensions
+markdown_extensions:
+  - admonition               # Highlighting callout boxes (notes, warnings, tips)
+  - pymdownx.details         # Collapsible callout sections
+  - pymdownx.superfences     # Rich code blocks with syntax highlighting
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true  # Multi-language/tabbed code snippets
 
 nav:
   - Home: index.md
